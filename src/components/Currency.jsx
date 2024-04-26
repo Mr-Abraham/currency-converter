@@ -35,34 +35,35 @@ function Currency() {
     <div>
       <div>
         <h1 className="text-3xl font-extrabold text-center mb-6">
-          {inputAmount ? convertedAmount : <h1>Nothing Entered Yet !!</h1>}
+          {inputAmount ? convertedAmount : "Nothing Entered Yet !!"}
         </h1>
       </div>
-      <div className="flex gap-5 p-3 justify-between items-center ">
-        <div>
-          {/* <h1 className="font-semibold text-xl mb-2">From</h1> */}
+      <div className="flex max-md:gap-1 gap-5 p-2 justify-between items-center ">
+        <div className="rounded-lg max-md:w-full max-md:py-0 max-md:px-2 pr-5 py-1 bg-white">
           <select
-            name=""
+            name="currencyRates"
             value={from}
-            id=""
-            className="w-full h-10 rounded-md p-2 text-xl font-bold"
+            id="currencyRates"
+            className="w-full uppercase h-10 rounded-md outline-none p-2 text-xl font-bold bg-transparent max-md:p-0 max-md:text-xs"
             onChange={(e) => {
               setFrom(e.target.value);
             }}
           >
             {fromOptions.map((opt) => (
-              <option className="uppercase " value={opt}>
+              <option className="uppercase" key={opt} value={opt}>
                 {opt}
               </option>
             ))}
           </select>
         </div>
         <button className="cursor-pointer" onClick={swap}>
-          <AiOutlineSwap className="text-8xl font-extrabold  text-green-400 " />
+          <AiOutlineSwap className="text-8xl font-extrabold  text-white" />
         </button>
-        <div>
+        <div className="rounded-lg pr-5 max-md:w-[100%] max-md:px-2 max-md:py-0 py-1 bg-white">
           <select
-            className="w-full h-10 rounded-md p-2 text-xl font-bold"
+            name="toRates"
+            id="toRates"
+            className="w-[100%] h-10 bg-transparent outline-none uppercase rounded-md p-2 text-xl max-md:p-0 max-md:text-xs font-bold"
             value={to}
             onChange={(e) => {
               setTo(e.target.value);
@@ -79,7 +80,10 @@ function Currency() {
       <div className="mt-2 mb-2">
         <input
           type="number"
-          className=" rounded-lg border p-2 font-semibold text-xl outline-none w-[100%] border-gray-500"
+          name="currencyUnit"
+          id="currencyUnit"
+          autoFocus
+          className=" rounded-lg  p-2 font-semibold text-xl w-[100%] outline-none bg-transparent text-center border-white border-4"
           onChange={(e) => setInputAmount(e.target.value)}
           value={inputAmount}
         />
