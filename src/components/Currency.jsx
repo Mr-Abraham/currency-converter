@@ -38,8 +38,8 @@ function Currency() {
           {inputAmount ? convertedAmount : "Nothing Entered Yet !!"}
         </h1>
       </div>
-      <div className="flex max-md:gap-1 gap-5 p-2 justify-between items-center ">
-        <div className="rounded-lg max-md:w-full max-md:py-0 max-md:px-2 pr-5 py-1 bg-white">
+      <div className="flex max-md:gap-3 gap-5 p-2 justify-between items-center ">
+        <div className="rounded-lg max-md:w-full max-md:py-0 max-md:px-2 pr-5 py-1 bg-red-100">
           <select
             name="currencyRates"
             value={from}
@@ -56,10 +56,13 @@ function Currency() {
             ))}
           </select>
         </div>
-        <button className="cursor-pointer" onClick={swap}>
-          <AiOutlineSwap className="text-8xl font-extrabold  text-white" />
+        <button
+          className="cursor-pointer rounded-full max-md:p-3 p-5 bg-blue-500"
+          onClick={swap}
+        >
+          <AiOutlineSwap className="max-md:text-4xl text-6xl font-extrabold text-green-100 hover:text-white" />
         </button>
-        <div className="rounded-lg pr-5 max-md:w-[100%] max-md:px-2 max-md:py-0 py-1 bg-white">
+        <div className="rounded-lg pr-5 max-md:w-[100%] max-md:px-2 max-md:py-0 py-1 bg-red-100">
           <select
             name="toRates"
             id="toRates"
